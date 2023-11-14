@@ -1,0 +1,56 @@
+type EventsSummary {
+  id: ID!
+  approval: [Approval!]! @derivedFrom(field: "eventsSummary")
+  approvalsCount: BigInt!
+  approvalForAll: [ApprovalForAll!]! @derivedFrom(field: "eventsSummary")
+  approvalForAllsCount: BigInt!
+  handleMinted: [HandleMinted!]! @derivedFrom(field: "eventsSummary")
+  handleMintedsCount: BigInt!
+  tokenGuardianStateChanged: [TokenGuardianStateChanged!]! @derivedFrom(field: "eventsSummary")
+  tokenGuardianStateChangedsCount: BigInt!
+  transfer: [Transfer!]! @derivedFrom(field: "eventsSummary")
+  transfersCount: BigInt!
+}
+
+type Approval {
+  id: ID!
+  owner: String!
+  approved: String!
+  tokenId: BigInt!
+  eventsSummary: String!
+}
+
+type ApprovalForAll {
+  id: ID!
+  owner: String!
+  operator: String!
+  approved: Boolean!
+  eventsSummary: String!
+}
+
+type HandleMinted {
+  id: ID!
+  handle: String!
+  namespace: String!
+  handleId: BigInt!
+  to: String!
+  timestamp: BigInt!
+  eventsSummary: String!
+}
+
+type TokenGuardianStateChanged {
+  id: ID!
+  wallet: String!
+  enabled: Boolean!
+  tokenGuardianDisablingTimestamp: BigInt!
+  timestamp: BigInt!
+  eventsSummary: String!
+}
+
+type Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  tokenId: BigInt!
+  eventsSummary: String!
+}

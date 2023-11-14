@@ -1,0 +1,25 @@
+name: lens handles
+networks:
+- id: 137
+  start_block: 0
+  contracts:
+  - name: LensHandles
+    address:
+    - 0xe7E7EaD361f3AaCD73A61A9bD6C10cA17F38E945
+    handler: src/EventHandlers.ts
+    events:
+    - event: Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
+      requiredEntities:
+      - name: EventsSummary
+    - event: ApprovalForAll(address indexed owner, address indexed operator, bool approved)
+      requiredEntities:
+      - name: EventsSummary
+    - event: HandleMinted(string handle, string namespace, uint256 handleId, address to, uint256 timestamp)
+      requiredEntities:
+      - name: EventsSummary
+    - event: TokenGuardianStateChanged(address indexed wallet, bool indexed enabled, uint256 tokenGuardianDisablingTimestamp, uint256 timestamp)
+      requiredEntities:
+      - name: EventsSummary
+    - event: Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
+      requiredEntities:
+      - name: EventsSummary
